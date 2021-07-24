@@ -58,6 +58,7 @@ class App extends PureComponent {
       top: document.documentElement.scrollHeight,
       behavior: 'smooth',
     });
+   
   };
 
   onSubmitForm = async ev => {
@@ -69,7 +70,7 @@ class App extends PureComponent {
     const { searchSubject, page } = this.state;
 
     ev.preventDefault();
-    if (searchSubject.toLocaleLowerCase() === value.toLocaleLowerCase()) {
+    if (searchSubject.toLowerCase() === value.toLowerCase()) {
       return;
     }
 
@@ -153,14 +154,14 @@ class App extends PureComponent {
     return (
       <div>
         <Searchbar onSubmit={onSubmitForm} />
-
+        
         <ImageGallery
           openModal={openModal}
           collectionImages={collectionImages}
         />
         {buttonVisible && <Button imageUpload={increment} />}
 
-        {/* {this.state. &&  && } */}
+     
         {status === 'loading' && (
           <BeatLoader loading={true} css={override} size={40} />
         )}
