@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from '../Searchbar/Searchbar';
 import ImageGallery from '../ImageGallery';
 import Button from '../Button/Button';
-import api from '../API/galleryApi';
+import api from '../helpers/galleryApi';
 import Modal from '../Modal';
 import Error from '../Error';
 
@@ -127,12 +127,12 @@ class App extends PureComponent {
     });
   };
 
-  closeModal = ({ target, currentTarget }) => {
-    if (target === currentTarget) {
+  closeModal = () => {
+   
       this.setState({
         showModal: false,
       });
-    }
+    
   };
 
   render() {
@@ -159,7 +159,7 @@ class App extends PureComponent {
           openModal={openModal}
           collectionImages={collectionImages}
         />
-        {buttonVisible && <Button imageUpload={increment} />}
+        {buttonVisible && <Button imageUpload={increment} text="Load more" />}
 
      
         {status === 'loading' && (
