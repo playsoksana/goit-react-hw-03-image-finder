@@ -27,9 +27,10 @@ class Modal extends Component {
   };
 
   render() {
-    const { children, closeModal } = this.props;
+    const { children} = this.props;
+    const {handleBackdropOnClick} = this;
     return (
-      <div onClick={closeModal} className={styles.Overlay}>
+      <div onClick={handleBackdropOnClick} className={styles.Overlay}>
         <div className={styles.Modal}>{children}</div>
       </div>
     );
